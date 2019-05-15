@@ -20,3 +20,5 @@ docker run -it --name debian_clang clang-cross-debian-armhf /bin/bash
 
 * Run an existing container:
 docker start -ia debian_clang
+
+After you've build the image and created a work container, see the end of my article for the post build steps [Using Clang as a cross compiler for Raspberry Pi - Post build steps](https://solarianprogrammer.com/2019/05/04/clang-cross-compiler-for-raspberry-pi/#post_build)
