@@ -34,7 +34,7 @@ FROM cross_common AS cross_builder
   && ninja \
   && ninja install \
   && echo 'export PATH=/usr/local/cross_armhf_clang_8.0.0/bin:$PATH' >> ~/.bashrc \
-  && echo 'export LD_LIBRARY_PATH=/usr/local/cross_armhf_clang_8.0.0/lib:LD_LIBRARY_PATH' >> ~/.bashrc \
+  && echo 'export LD_LIBRARY_PATH=/usr/local/cross_armhf_clang_8.0.0/lib:$LD_LIBRARY_PATH' >> ~/.bashrc \
   && . ~/.bashrc \
   && cd ~/llvm_all \
   && mkdir build_libcxxabi && cd build_libcxxabi \
@@ -55,7 +55,7 @@ FROM cross_common AS cross_builder
 FROM cross_common
   COPY --from=cross_builder /usr/local/cross_armhf_clang_8.0.0 /usr/local/cross_armhf_clang_8.0.0
   RUN echo 'export PATH=/usr/local/cross_armhf_clang_8.0.0/bin:$PATH' >> ~/.bashrc \
-  && echo 'export LD_LIBRARY_PATH=/usr/local/cross_armhf_clang_8.0.0/lib:LD_LIBRARY_PATH' >> ~/.bashrc \
+  && echo 'export LD_LIBRARY_PATH=/usr/local/cross_armhf_clang_8.0.0/lib:$LD_LIBRARY_PATH' >> ~/.bashrc \
   && . ~/.bashrc
 
 # Start from a Bash prompt
